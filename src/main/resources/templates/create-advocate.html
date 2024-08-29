@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Advocate</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"> <!-- Optional: link to a CSS file -->
+</head>
+<body>
+
+    <h1>Create Advocate</h1>
+
+    <form th:action="@{/advocates/save}" th:object="${advocate}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required/>
+        </div>
+        <div>
+            <label for="education">Education:</label>
+            <input type="text" id="education" name="education" th:field="*{education}" required/>
+        </div>
+        <div>
+            <label for="experience">Experience:</label>
+            <input type="text" id="experience" name="experience" th:field="*{experience}" required/>
+        </div>
+        <div>
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" th:field="*{position}" required/>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" required/>
+        </div>
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}" required/>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+</body>
+</html>

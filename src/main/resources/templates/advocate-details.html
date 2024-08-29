@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Advocate Details</title>
+</head>
+<body>
+<h1 th:text="${advocate.name}">Advocate Name</h1>
+<p th:text="'Education: ' + ${advocate.education}">Education</p>
+<p th:text="'Position: ' + ${advocate.position}">Position</p>
+<p th:text="'Experience: ' + ${advocate.experience}">Experience</p>
+
+<h2>Reviews</h2>
+<ul>
+    <li th:each="review : ${advocate.reviews}">
+        <p th:text="${review.content}">Review Content</p>
+        <p th:text="'Rating: ' + ${review.rating}">Rating</p>
+    </li>
+</ul>
+
+<h2>Past Cases</h2>
+<ul>
+    <li th:each="pastCase : ${advocate.pastCases}">
+        <p th:text="${pastCase.caseName}">Case Name</p>
+        <p th:text="'Outcome: ' + ${pastCase.outcome}">Outcome</p>
+    </li>
+</ul>
+
+<h2>Book Advocate</h2>
+<form th:action="@{'/booking'}" method="post">
+    <input type="text" name="clientName" placeholder="Your Name" required/>
+    <input type="date" name="appointmentDate" required/>
+    <input type="hidden" th:value="${advocate.id}" name="advocateId"/>
+    <button type="submit">Book</button>
+</form>
+</body>
+</html>
