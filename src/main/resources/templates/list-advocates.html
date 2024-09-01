@@ -9,7 +9,9 @@
     <li th:each="advocate : ${advocates}">
         <a th:href="@{'/advocate/' + ${advocate.id}}"
            th:text="${advocate.name}">Advocate Name</a>
+            <a th:href="@{'/advocate/delete/' + ${advocate.id}}">Delete</a> 
     </li>
 </ul>
+<a th:href="@{/advocates/create}">Create New Advocate</a>
 </body>
 </html>

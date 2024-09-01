@@ -1,15 +1,10 @@
 package com.justicehub.model;
 
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
-import java.util.List;
 
 @Entity
 public class Advocate {
@@ -20,15 +15,12 @@ public class Advocate {
 	    private String education;
 	    private String position;
 	    private String experience;
+	    private String pastCases;
 	    
-	    public Advocate() {
-	    }
 	    
-	    @OneToMany(mappedBy = "advocate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	    private List<Review> reviews;
 
-	    @OneToMany(mappedBy = "advocate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	    private List<PastCase> pastCases;
+		public Advocate() {
+		}
 
 		public Long getId() {
 			return id;
@@ -70,40 +62,40 @@ public class Advocate {
 			this.experience = experience;
 		}
 
-		public List<Review> getReviews() {
-			return reviews;
-		}
-
-		public void setReviews(List<Review> reviews) {
-			this.reviews = reviews;
-		}
-
-		public List<PastCase> getPastCases() {
+		public String getPastCases() {
 			return pastCases;
 		}
 
-		public void setPastCases(List<PastCase> pastCases) {
+		public void setPastCases(String pastCases) {
 			this.pastCases = pastCases;
 		}
 
-		public Advocate(Long id, String name, String education, String position, String experience,
-				List<Review> reviews, List<PastCase> pastCases) {
+		public Advocate(Long id, String name, String education, String position, String experience, String pastCases) {
 			super();
 			this.id = id;
 			this.name = name;
 			this.education = education;
 			this.position = position;
 			this.experience = experience;
-			this.reviews = reviews;
 			this.pastCases = pastCases;
 		}
 
 		@Override
 		public String toString() {
 			return "Advocate [id=" + id + ", name=" + name + ", education=" + education + ", position=" + position
-					+ ", experience=" + experience + ", reviews=" + reviews + ", pastCases=" + pastCases + "]";
+					+ ", experience=" + experience + ", pastCases=" + pastCases + "]";
 		}
-        
+		
+		
 	    
+	    
+	    
+//	    @OneToMany(mappedBy = "advocate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	    private List<Review> reviews;
+
+//	    @OneToMany(mappedBy = "advocate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	    private List<PastCase> pastCases;
+	    
+	       
 	    
 	}

@@ -27,6 +27,10 @@ public class AdvocateService {
 		Advocate b=advocateRepository.save(advocate);
 		return b;
 	}
+	
+	public void deleteAdvocateById(Long id) {
+        advocateRepository.deleteById(id);
+    }
     
 //    public Advocate addAdvocate(AdvocateDTO advocateDTO) {
 //        Advocate advocate = new Advocate(null, null, null, null, null, null, null);
